@@ -1,6 +1,7 @@
 import { addDecorator, configure } from '@storybook/react';
 import React from 'react';
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { base } from '../src/theme/base';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -23,5 +24,12 @@ const withGlobalStyles = (cb: Function) => (
   </>
 );
 
-addDecorator(withGlobalStyles)
+addDecorator(withGlobalStyles);
+addDecorator((story) => (
+  <ThemeProvider theme={base}>
+    {story()}
+  </ThemeProvider>
+))
+
+
 configure(loadStories, module)

@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
-import { ButtonProps } from './';
+import { ButtonProps, ButtonVariant } from './';
 
 export const StyledButton = styled.button<ButtonProps>`
   font-size: 0.85rem;
   padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  border-radius: ${props => props.theme.radii.default};
   border-color: transparent;
   transition: background-color 0.1s ease;
   display: flex;
@@ -24,20 +24,55 @@ export const StyledButton = styled.button<ButtonProps>`
     margin-right: 0.25rem;
   }
 
+  /* variant styles */
   ${props => `${props.addStyles}`}
+  ${props => props.variant === ButtonVariant.PRIMARY && barStyles}
 `;
 
-export const StyledPrimaryButton = css`
-  background-color: #075fff;
-  color: white;
+const barStyles = css`
+ background-color: purple;
+ color: red;
+`;
+
+const foobarStyles = css`
+  background-color: papayawhip;
+  color: purple;
+`;
+
+const fooStyles = css`:before {}
+
+
+
+
+  background-color:  ${props => props.theme.colors.primary.main};
+  color: ${props => props.theme.colors.greys.white};;
+`;
+
+const primaryStyles = () => css`color: red;
+  background-color:  ${props => props.theme.colors.primary.main};
+  color: ${props => props.theme.colors.greys.white};;
 
   &:hover,
   &:focus {
-    background-color: #004ddb;
+    background-color: ${props => props.theme.colors.primary.dark};
   }
 
   &:active {
-    background-color: #003eb0;
+    background-color: ${props => props.theme.colors.primary.darkest};
+  }
+`;
+
+export const StyledPrimaryButton = css`
+  background-color: ${props => props.theme.colors.primary.main};
+  color: ${props => props.theme.colors.greys.white};;
+
+  &:hover,
+  &:focus {
+    background-color: ${props => props.theme.colors.primary.dark};
+  }
+
+  &:active {
+    background-color: ${props => props.theme.colors.primary.darkest};
   }
 `;
 
