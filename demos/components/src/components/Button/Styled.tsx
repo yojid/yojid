@@ -25,42 +25,10 @@ export const StyledButton = styled.button<ButtonProps>`
   }
 
   /* variant styles */
-  ${props => `${props.addStyles}`}
-  ${props => props.variant === ButtonVariant.PRIMARY && barStyles}
+  ${props => props.variant === ButtonVariant.PRIMARY && StyledPrimaryButton}
+  ${props => props.variant === ButtonVariant.SECONDARY && StyledSecondaryButton}
 `;
 
-const barStyles = css`
- background-color: purple;
- color: red;
-`;
-
-const foobarStyles = css`
-  background-color: papayawhip;
-  color: purple;
-`;
-
-const fooStyles = css`:before {}
-
-
-
-
-  background-color:  ${props => props.theme.colors.primary.main};
-  color: ${props => props.theme.colors.greys.white};;
-`;
-
-const primaryStyles = () => css`color: red;
-  background-color:  ${props => props.theme.colors.primary.main};
-  color: ${props => props.theme.colors.greys.white};;
-
-  &:hover,
-  &:focus {
-    background-color: ${props => props.theme.colors.primary.dark};
-  }
-
-  &:active {
-    background-color: ${props => props.theme.colors.primary.darkest};
-  }
-`;
 
 export const StyledPrimaryButton = css`
   background-color: ${props => props.theme.colors.primary.main};
@@ -72,7 +40,7 @@ export const StyledPrimaryButton = css`
   }
 
   &:active {
-    background-color: ${props => props.theme.colors.primary.darkest};
+    background-color: ${props => props.theme.colors.primary.main};
   }
 `;
 

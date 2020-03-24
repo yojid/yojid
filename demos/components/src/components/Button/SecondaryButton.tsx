@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyledSecondaryButton } from './Styled';
 
-import { Button, ButtonProps } from './';
+import { Button, ButtonProps, ButtonVariant } from './';
 
-export const SecondaryButton: React.FC<ButtonProps> = props => <Button addStyles={StyledSecondaryButton} {...props} />;
+export const SecondaryButton: React.FC<ButtonProps> = props => <Button variant={ButtonVariant.SECONDARY} {...props} />;
 
 export default SecondaryButton;
